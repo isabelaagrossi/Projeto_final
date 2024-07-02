@@ -271,7 +271,7 @@ anova(lm_car)
 #### Testando normalidade e homogeneidade
 
 ```{r}
-#plot(simulateResiduals(lm_car))
+plot(simulateResiduals(lm_car))
 
 ```
 

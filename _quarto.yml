@@ -11,9 +11,9 @@ website:
     - text: Análises
       menu:
         - href: INVITRO.qmd
-          text: In-vitro
+          text: In vitro
         - href: invivo_2.qmd
-          text: In-vivo
+          text: In vivo
     background: primary  
 
 
@@ -24,7 +24,7 @@ format:
   html:
     theme:  
       light: flatly
-      dark: [flatly, theme-dark.scss]
+      dark: darkly
     css: styles.css
     toc: true
 
