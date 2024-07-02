@@ -1,0 +1,280 @@
+---
+title: ""
+---
+
+## Teste *in vitro*
+
+### Pacotes
+
+```{r,results='hide', message=FALSE, warning=FALSE}
+
+library(tidyverse)
+library(ggthemes)
+library(readxl)
+library(DT)
+library(drc) 
+library(patchwork)
+library(ggplot2)
+
+```
+
+
+### Importando os dados
+
+```{r}
+library(readxl)
+data <- read_xlsx("experimento_arroz.xlsx")
+library(DT)
+datatable(data)
+```
+
+## Analise exploratoria
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+
+data2 <- data |>
+  group_by(trat, dose) |> 
+  summarise(growth_mean = mean(crescimento))
+
+ data |> 
+   ggplot(aes(dose, crescimento))+
+  geom_point()+
+  #geom_line()+
+  facet_wrap(~trat) +
+      labs(x = "Dose (μL.L-1)", y = "Crescimento micelial (cm)", title= "Efeito de nanoparticulas no crescimento micelial") +
+      theme_few()+
+    theme(plot.title = element_text(hjust = 0.5)) 
+
+  data
+  
+```
+
+## Analise para NPsCu:
+
+### Ajuste de modelo para regresão:
+
+#### Modelo linear
+
+```{r}
+cu <- data |> filter(trat == "NPsCu")
+m1 <- lm(crescimento ~ dose, data=cu)
+summary(m1)
+
+```
+
+#### Modelo quadratico:
+
+```{r}
+
+m2=lm( crescimento ~ dose + I(dose^2), data = cu)
+summary(m2)
+
+```
+
+#### Comparação dos modelos
+
+```{r}
+
+AIC(m1, m2)
+
+```
+
+### Representação grafica dos dois modelos de melhor ajuste para NPsCu:
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+
+c <- cu |> 
+  group_by(dose) |> 
+  summarize(meancresc = mean(crescimento), sd=sd(crescimento))
+
+# Modelo linear
+c1 <- c |> 
+  ggplot(aes(dose, meancresc))+
+  geom_point()+
+ # scale_x_continuous(breaks = seq(7,22,2), limits = c(7,21))+
+  geom_smooth(se = F, formula = y ~ poly(x, 1), method = "lm", color = "black")+
+  theme_few()+
+  annotate(geom = "text",
+           x = 4.5, y = 8.5,
+           label = "y = 8.87 - 0.84 x
+           R² = 0.88",
+           hjust = 1,5)+ 
+  geom_errorbar(aes(ymin = meancresc - sd, 
+                    ymax = meancresc + sd), 
+                width = 0.1) +
+   labs(y= "Média do crescimento", x= "Dose", title = 'Modelo linear') 
+
+
+# Modelo quadratico
+c2 <- c |> 
+  ggplot(aes(dose, meancresc))+
+  geom_point()+
+ # scale_x_continuous(breaks = seq(7,22,2), limits = c(7,21))+
+  geom_smooth(se = F, formula = y ~ poly(x, 2), method = "lm", color = "black")+
+  theme_few()+
+  annotate(geom = "text",
+           x = 4.5, y = 8.5,
+           label = "y = 8.53 - 0.34x - 0.1x²
+           R² = 0.91",
+           hjust = 1,5)+ 
+  geom_errorbar(aes(ymin = meancresc - sd, 
+                    ymax = meancresc + sd), 
+                width = 0.1) +
+  labs(y= "", x= "Dose", title = 'Modelo quadratico')
+
+
+
+(c1|c2)
+
+```
+
+
+## Analises para NPsAg:
+
+### Ajuste de modelo para regresão:
+
+#### Modelo linear
+
+```{r}
+ag = data |> filter(trat == "NPsAg")
+  m1 =lm(crescimento ~ dose, data=ag)
+summary(m1)
+
+```
+
+#### Modelo quadratico
+
+```{r}
+
+m2=lm( crescimento ~ dose + I(dose^2), data = ag)
+summary(m2)
+
+```
+
+#### Comparação dos modelos
+
+```{r}
+
+AIC(m1, m2)
+
+```
+
+### Representação grafica dos dois modelos de melhor ajuste:
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+
+a <- ag |> 
+  group_by(dose) |> 
+  summarize(meancresc = mean(crescimento), sd=sd(crescimento))
+
+# Modelo linear
+a1 <- a |> 
+  ggplot(aes(dose, meancresc))+
+  geom_point()+
+ # scale_x_continuous(breaks = seq(7,22,2), limits = c(7,21))+
+  geom_smooth(se = F, formula = y ~ poly(x, 1), method = "lm", color = "black")+
+  theme_few()+
+  annotate(geom = "text",
+           x = 4.5, y = 8.5,
+           label = "y = 9.27 - 1.22 x
+           R² = 0.89",
+           hjust = 1,5)+ 
+  geom_errorbar(aes(ymin = meancresc - sd, 
+                    ymax = meancresc + sd), 
+                width = 0.1) +
+   labs(y= "Média do crescimento", x= "Dose", title = 'Modelo linear') 
+
+
+# Modelo quadratico
+a2 <- a |> 
+  ggplot(aes(dose, meancresc))+
+  geom_point()+
+ # scale_x_continuous(breaks = seq(7,22,2), limits = c(7,21))+
+  geom_smooth(se = F, formula = y ~ poly(x, 2), method = "lm", color = "black")+
+  theme_few()+
+  annotate(geom = "text",
+           x = 4.5, y = 8.5,
+           label = "y = 8.75 - 0.44x - 0.16x²
+           R² = 0.92",
+           hjust = 1,5)+ 
+  geom_errorbar(aes(ymin = meancresc - sd, 
+                    ymax = meancresc + sd), 
+                width = 0.1) +
+   labs(y= "", x= "Dose", title = 'Modelo quadratico')
+
+(a1|a2)
+
+```
+
+## EC50 
+
+### Calculo do EC50 - NPsCu
+
+```{r}
+
+drc1 <- drm(crescimento ~ dose, data = cu,
+    fct = LL.3())
+summary(drc1)
+
+plot(drc1)
+
+
+ED(drc1, 50, interval = "delta")
+
+```
+
+
+### Calculo do EC50 - NPsAg
+
+```{r}
+
+
+drc2 <- drm(crescimento ~ dose, data = ag,
+    fct = LL.3())
+summary(drc2)
+
+plot(drc2)
+
+ED(drc2, 50, interval = "delta")
+```
+
+
+```{r}
+
+dadonano <- data.frame( Trat = c("NPsCu", "NPsAg"),
+                       Estimate = c(5.25965, 3.9594 ),
+                       Lower = c(4.76202, 3.7097),
+                       Upper = c(5.75729, 4.2091))
+
+datatable(dadonano)
+
+
+```
+
+
+```{r}
+
+plotEC <- dadonano |>
+  ggplot(aes(Trat, Estimate)) +
+  geom_point() +
+  ylim(1,10)+
+  geom_errorbar(aes(ymin = Lower, ymax = Upper), width = 0.05) +  
+   geom_text(aes(label = round(Estimate, 2)), hjust = 1.2) +  
+  labs(x = "Nanoparticula", y = "EC50") + 
+ theme_few()
+
+plotEC
+
+```
+
+
+
+
+
+
+
+
+
+
+
+

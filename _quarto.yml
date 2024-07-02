@@ -1,0 +1,31 @@
+project:
+  type: website
+
+website:
+  title: "NPs no Controle de Mancha Parda no Arroz"
+  navbar:
+    left:
+    - text: Introdução
+      href: INTRODUCAO.qmd
+    - text: Análises
+      menu:
+        - href: INVITRO.qmd
+          text: In-vitro
+        - href: invivo_2.qmd
+          text: In-vivo
+    background: primary  
+
+
+
+
+
+format:
+  html:
+    theme:  
+      light: flatly
+      dark: [flatly, theme-dark.scss]
+    css: styles.css
+    toc: true
+
+editor: visual
+

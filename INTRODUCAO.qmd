@@ -1,0 +1,63 @@
+---
+title: ""
+---
+
+## Resumo
+
+O arroz (*Oryza sativa* L.) ocupa terceira posição entre os grãos mais produzidos no mundo, atrás apenas do milho e do trigo. É um dos principais alimentos básicos consumidos por mais da metade da população mundial, fornecendo até 80% da ingestão diária de calorias de grande parte da população humana. Contudo, mancha parda, causada pelo fungo *Bipolaris oryzae*, é uma das doenças de maior importância na cultura e está amplamente distribuída nas regiões produtoras de arroz em todo o mundo, sendo particularmente importante nas regiões tropicais. As estratégias de manejo para mancha parda são limitadas, sendo recomendado o controle genético e, principalmente, a aplicação de fungicidas. O uso da nanotecnologia tem se mostrado como uma estratégia de controle de doenças na agricultura contra fitopatógenos. Em destaque surge o uso de nanopartículas metálicas, como as NPsAg e NPsCu. O presente estudo objetivou avaliar o efeito de Nanopartículas de Prata (NPsAg) e cobre (NPsCu) sobre fungo *B. oryzae*. Primeiramente, testes in vitro foram realizados para verificar o desenvolvimento de *B. oryzae* com doses crescentes de NPsAg e NPsCu. Posteriormente um experimento in vivo foi instalado em condições de casa de vegetação para avaliar os efeitos epidemiológicos e fisiológicos de plantas de arroz previamente tratada com NPsAg e NPsCu e infectadas com *B. oryzae*. O delineamento inteiramente casualizado em 8 repetições, sendo utilizada a cultivar de arroz Tropical. Os tratamentos utilizados foram: água destilada (tratamento controle), NpsAg e NPsCu. A inoculação com *B.oryzae* foi realizada 24 horas após a aplicação NPsAg e NPsCu.
+
+### Metodologia teste *in vitro*
+
+![](metologiainvitro.jpg){fig-align="center"}
+
+### Metodologia teste *in vivo*
+
+![](metodologiainvivo.jpg){fig-align="center"}
+
+## Local de coleta dos dados
+
+```{r, results='hide', message=FALSE, warning=FALSE}
+
+library(rnaturalearth)
+library(remotes)
+library(tidyverse)
+
+```
+
+```{r}
+
+BRA <- ne_states(country = "Brazil",
+                 returnclass = "sf")
+```
+
+```{r}
+city <- "Recife"
+lat <- -8.05428
+lon <- -34.8813
+dat <- data.frame(city, lat, lon)
+
+
+
+PE <- BRA[BRA$name_en == "Pernambuco", ]
+
+```
+
+```{r}
+
+
+brasil <- ggplot(BRA) +
+  geom_sf(fill = "white") +
+   geom_sf(data = PE, fill = "black") +
+  coord_sf() +
+  geom_point(data = dat, aes(lon, lat), color = "red")+
+  theme_minimal() +
+  theme(axis.title.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank(),
+    axis.ticks.y = element_blank())
+
+brasil
+
+```
