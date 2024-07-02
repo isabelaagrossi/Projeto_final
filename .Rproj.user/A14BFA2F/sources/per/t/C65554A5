@@ -1,14 +1,14 @@
 {
-    "id": "A35C3E0C",
-    "path": "~/github/Projeto_final/index.qmd",
-    "project_path": "index.qmd",
+    "id": "C65554A5",
+    "path": "~/github/Projeto_final/INTRODUCAO.qmd",
+    "project_path": "INTRODUCAO.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "2145771920",
     "contents": "",
     "dirty": false,
-    "created": 1719928562497.0,
+    "created": 1719928628396.0,
     "source_on_save": false,
-    "relative_order": 1,
+    "relative_order": 2,
     "properties": {
         "rmdVisualMode": "false",
         "rmdVisualWrapConfigured": "true",
@@ -16,15 +16,16 @@
         "Source": "Source",
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
-        "cursorPosition": "6,19",
-        "scrollLine": "5"
+        "rmdVisualModeLocation": "2:0",
+        "cursorPosition": "63,0",
+        "scrollLine": "0"
     },
     "folds": "",
     "lastKnownWriteTime": 1719929162,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719929162620,
+    "last_content_update": 1719929162651,
     "read_only": false,
     "read_only_alternatives": []
 }

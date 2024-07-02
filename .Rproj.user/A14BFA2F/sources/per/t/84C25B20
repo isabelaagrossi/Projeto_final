@@ -3,7 +3,7 @@
     "path": "~/github/Projeto_final/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "2742398364",
+    "hash": "104467749",
     "contents": "",
     "dirty": false,
     "created": 1719929119240.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "26,17",
+        "cursorPosition": "28,13",
         "scrollLine": "13"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719938596,
+    "lastKnownWriteTime": 1719945065,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719938596295,
+    "last_content_update": 1719945065521,
     "read_only": false,
     "read_only_alternatives": []
 }
