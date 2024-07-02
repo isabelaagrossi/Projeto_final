@@ -3,7 +3,7 @@
     "path": "~/github/Projeto_final/invivo_2.qmd",
     "project_path": "invivo_2.qmd",
     "type": "quarto_markdown",
-    "hash": "2431153758",
+    "hash": "2672326603",
     "contents": "",
     "dirty": false,
     "created": 1719950707859.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "2159:2264.800048828125",
-        "cursorPosition": "183,0",
-        "scrollLine": "175"
+        "cursorPosition": "92,0",
+        "scrollLine": "69"
     },
     "folds": "",
-    "lastKnownWriteTime": 1719951515,
+    "lastKnownWriteTime": 1719952125,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1719951577538,
+    "last_content_update": 1719952125746,
     "read_only": false,
     "read_only_alternatives": []
 }

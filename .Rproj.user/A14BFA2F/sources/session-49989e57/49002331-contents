@@ -68,6 +68,30 @@ anova(modelo1)
 
 ```
 
+
+```{r}
+
+sev3 |> 
+  ggplot(aes(x = factor(trat, levels = c("NPsAg", "NPsCu", "Controle")), 
+             y = severidade)) +
+  geom_boxplot(fill = "gray90", 
+               outlier.color = NA) +
+  geom_jitter(width = 0.1, 
+              height = 1,
+              color = "black",
+              size = 1.1) +
+  geom_point(stat = "summary", 
+             fun = "mean", 
+             shape = 20, size = 3.2 , color = "red") +
+  scale_y_continuous(limits = c(30, 100),
+                     n.breaks = 5) +
+  theme_few()+
+  labs(x= "", y= "Severidade (%)")
+
+
+```
+
+
 #### Teste de normalidade e homogeneidade
 
 ```{r, results='hide', message=FALSE, warning=FALSE}
@@ -92,28 +116,6 @@ hist(modelo1$residuals)
 emmeans <- emmeans(modelo1, ~trat)
 
 cld(emmeans, Letters = letters)
-```
-
-```{r}
-
-sev3 |> 
-  ggplot(aes(x = factor(trat, levels = c("NPsAg", "NPsCu", "Controle")), 
-             y = severidade)) +
-  geom_boxplot(fill = "gray90", 
-               outlier.color = NA) +
-  geom_jitter(width = 0.1, 
-              height = 1,
-              color = "black",
-              size = 1.1) +
-  geom_point(stat = "summary", 
-             fun = "mean", 
-             shape = 20, size = 3.2 , color = "red") +
-  scale_y_continuous(limits = c(30, 100),
-                     n.breaks = 5) +
-  theme_few()+
-  labs(x= "", y= "Severidade (%)")
-
-
 ```
 
 ## AACPD
