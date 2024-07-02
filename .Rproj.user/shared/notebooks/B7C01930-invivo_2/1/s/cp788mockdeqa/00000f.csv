@@ -1,0 +1,7 @@
+"0",""
+"0","a1 |> "
+"0","  ggplot(aes(trat, aacpd)) +"
+"0","  geom_boxplot() +"
+"0","  labs(x = ""Tratamento"","
+"0","       y = ""AACPD"") +"
+"0","  theme_few()"

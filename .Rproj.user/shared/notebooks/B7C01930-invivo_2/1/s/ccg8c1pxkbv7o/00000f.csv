@@ -1,0 +1,8 @@
+"0","check_normality(lm_car)"
+"1","[32mOK: residuals appear as normally distributed (p = 0.209).
+[39m"
+"0","check_heteroscedasticity(lm_car)"
+"1","[32mOK: Error variance appears to be homoscedastic (p = 0.798).
+[39m"
+"0","hist(lm_car$residuals)"
+"0",""

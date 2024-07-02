@@ -1,0 +1,4 @@
+"0","library(readxl)"
+"0","data <- read_xlsx(""experimento_arroz.xlsx"")"
+"0","library(DT)"
+"0","datatable(data)"

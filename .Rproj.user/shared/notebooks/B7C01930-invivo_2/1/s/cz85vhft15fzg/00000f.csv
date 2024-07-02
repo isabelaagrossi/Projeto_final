@@ -1,4 +1,8 @@
 "0","library(readxl)"
+"2","Warning message:
+"
+"2","package ‘emmeans’ was built under R version 4.3.3 
+"
 "0","library(DT)"
 "0","library(tidyverse)"
 "0","library(ggthemes)"
