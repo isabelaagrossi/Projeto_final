@@ -1,0 +1,9 @@
+"0",""
+"2","Warning message:
+"
+"2","package ‘emmeans’ was built under R version 4.3.3 
+"
+"0","library(rnaturalearth)"
+"0","library(remotes)"
+"0","library(tidyverse)"
+"0",""
