@@ -264,7 +264,7 @@ chl2 <- pig |>
                     ymax = clorofila_mean + clorofila_sd,
                     width = 0.05))+
   theme_few() +
-  labs(x = "Tratamento", y = "Carotenoides (mg/g FW)", color ="") +
+  labs(x = "Tratamento", y = "Chl a+b (mg/g FW)", color ="") +
   annotate("text", x= 1, y= 3.4, label = "a") +
   annotate("text", x= 2, y= 2.5, label = "b") +
   annotate("text", x= 3, y= 2.1, label = "c")
@@ -322,12 +322,14 @@ car2 <- pig |>
                     ymax = carotenoides_mean + carotenoides_sd,
                     width = 0.05))+
   theme_few() +
-  labs(x = "Tratamento", y = "Chl a+b (mg/g FW)", color ="") +
+  labs(x = "Tratamento", y = "Carotenoides (mg/g FW)", color ="") +
   annotate("text", x= 1, y= 0.42, label = "a") +
   annotate("text", x= 2, y= 0.41, label = "a") +
   annotate("text", x= 3, y= 0.33, label = "b")
 
 car2
+
+
 
 ```
 

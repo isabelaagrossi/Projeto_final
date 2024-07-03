@@ -1,8 +1,5 @@
 "0",""
-"2","Warning message:
-"
-"2","package ‘emmeans’ was built under R version 4.3.3 
-"
+"0",""
 "0","car2 <- pig |>"
 "0","  group_by(trat) |>"
 "0","  summarise(carotenoides_mean = mean(carotenoides),"
@@ -14,10 +11,9 @@
 "0","                    ymax = carotenoides_mean + carotenoides_sd,"
 "0","                    width = 0.05))+"
 "0","  theme_few() +"
-"0","  labs(x = ""Tratamento"", y = ""Chl a+b (mg/g FW)"", color ="""") +"
+"0","  labs(x = ""Tratamento"", y = ""Carotenoides (mg/g FW)"", color ="""") +"
 "0","  annotate(""text"", x= 1, y= 0.42, label = ""a"") +"
 "0","  annotate(""text"", x= 2, y= 0.41, label = ""a"") +"
 "0","  annotate(""text"", x= 3, y= 0.33, label = ""b"")"
-"2","Error in ggplot(summarise(group_by(pig, trat), carotenoides_mean = mean(carotenoides),  : 
-  não foi possível encontrar a função ""ggplot""
-"
+"0",""
+"0","car2"

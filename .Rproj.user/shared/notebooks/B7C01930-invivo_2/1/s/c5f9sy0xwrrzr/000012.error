@@ -1,1 +1,0 @@
-{"frames":[],"message":"Error in ggplot(summarise(group_by(pig, trat), carotenoides_mean = mean(carotenoides),  : \n  não foi possível encontrar a função \"ggplot\"\n"}
